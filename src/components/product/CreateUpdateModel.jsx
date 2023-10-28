@@ -52,6 +52,8 @@ function CreateUpdateModel() {
                       <option value="包子">包子</option>
                       <option value="酥餅">酥餅</option>
                       <option value="鬆糕">鬆糕</option>
+                      <option value="粽子">粽子</option>
+                      <option value="其他">其他</option>
                     </select>
                   </div>
                   <div>

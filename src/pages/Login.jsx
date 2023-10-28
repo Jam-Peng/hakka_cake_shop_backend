@@ -36,7 +36,7 @@ function Login() {
                   <input id="username" name="username" type="text" autoComplete="username" required
                     placeholder="Account / 會員帳號"
                     value={username}
-                    onChange={e => setUsername(e.target.value)}
+                    onChange={e => setUsername(e.target.value.trim())}
                     className="input_set"/>
                 </div>
               </div>
@@ -48,7 +48,7 @@ function Login() {
                   <input id="password" name="password" type="password" autoComplete="current-password" required
                     placeholder="Password / 會員密碼" 
                     value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    onChange={e => setPassword(e.target.value.trim())}
                     className="input_set"/>
                 </div>
               </div>
