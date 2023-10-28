@@ -7,10 +7,12 @@ import { RiTakeawayLine } from "react-icons/ri";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { OrdersContext } from "../../context/OrdersContext";
 import OrderItems from "./OrderItems";
+import { AuthContext } from "../../context/AuthContext";
 
 function OrderList({ order }) {
   const [allOrderTime, setAllOrderTime] = useState('')
   const { openAllOrderItem, setALLOpenOrderItem, deleteOrderFromDb } = useContext(OrdersContext)
+  const { currentUser } = useContext(AuthContext)
 
   const { id, order_id, client_name, phone, email, address, created_at, paid_amount, items } = order
 
@@ -58,11 +60,15 @@ function OrderList({ order }) {
                   <span><SlCalender size={20} /></span>
                   <span>{allOrderTime}</span>
                 </div>
+                {currentUser.admin === true ?
                 <div onClick={()=>{deleteOrderFromDb(id)}}>
                   <button className="btn-order_delete">
                     <FiTrash2 size={18}/>
                   </button>
                 </div>
+                :
+                null
+                }
               </div>
             </div>
             <div className="flex items-center space-x-20">

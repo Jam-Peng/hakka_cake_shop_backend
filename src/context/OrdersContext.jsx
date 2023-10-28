@@ -75,7 +75,6 @@ function OrdersProvider({ children }) {
     const response = await fetch(`${apiurl}/order/search/?search=${searchOrderQ}/`, {
       method: "GET",
       headers: {
-        // "Content-Type": "application/json",
         "Authorization": "Bearer " + String(authToken.access)
       }
     })
@@ -85,8 +84,6 @@ function OrdersProvider({ children }) {
       setSearchOrderQ('')
     } 
   }
-
-
 
   const contextData = {
     allOrders: allOrders,

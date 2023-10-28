@@ -35,7 +35,7 @@ function AccountModel() {
                   <input type="text" id="userName" name="userName"
                     className="block w-full rounded-md py-1 px-3 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                     value={userName}
-                    onChange={e => setUserName(e.target.value)}
+                    onChange={e => setUserName(e.target.value.trim())}
                     required
                   />
                 </div>
@@ -45,7 +45,7 @@ function AccountModel() {
                   <input type="text" id="staffName" name="staffName"
                     className="block w-full rounded-md py-1 px-3 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                     value={staffName}
-                    onChange={e => setStaffName(e.target.value)}
+                    onChange={e => setStaffName(e.target.value.trim())}
                   />
                 </div>
                 <div>
@@ -53,7 +53,7 @@ function AccountModel() {
                   <input type="email" id="email" name="email"
                     className="block w-full rounded-md py-1 px-3 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                     value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={e => setEmail(e.target.value.trim())}
                     required
                   />
                 </div>
@@ -62,7 +62,7 @@ function AccountModel() {
                   <input type="password" id="password1" name="password1"
                     className="block w-full rounded-md py-1 px-3 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                     value={password1}
-                    onChange={e => setPassword1(e.target.value)}
+                    onChange={e => setPassword1(e.target.value.trim())}
                     required
                   />
                 </div>
@@ -71,7 +71,7 @@ function AccountModel() {
                   <input type="password" id="password2" name="password2"
                     className="block w-full rounded-md py-1 px-3 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                     value={password2}
-                    onChange={e => setPassword2(e.target.value)}
+                    onChange={e => setPassword2(e.target.value.trim())}
                     required
                   />
                 </div>
