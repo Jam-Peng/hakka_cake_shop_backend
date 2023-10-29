@@ -11,8 +11,6 @@ import { AuthContext } from "../context/AuthContext";
 function Staff() {
   const { currentUser, authToken } = useContext(AuthContext)
   const { getStaffs, staffs, clockIn, clockOut, clockInMessage, searchStaffs } = useContext(StaffContext)
-
-  // console.log(staffs)
   
   useEffect(() => {
     getStaffs()

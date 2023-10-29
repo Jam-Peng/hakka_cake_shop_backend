@@ -19,11 +19,11 @@ const { quantity } = item
         <div className="w-5/12">
           <span>{orderItem.name}</span>
         </div>
-        <div className="w-2/12">
+        <div className="w-2/12 px-2.5">
           <span>{quantity}</span>
         </div>
         <div className="w-2/12">
-          <span>$ {orderItem.price}</span>
+          <span>NT. {orderItem.price}</span>
         </div>
       </div>  
     </section>

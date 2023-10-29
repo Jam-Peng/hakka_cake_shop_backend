@@ -1,8 +1,8 @@
 import logo from '../assets/logo.png'
-import {
-  BsListOl, BsInfoCircleFill, BsChevronUp,
+import { BsListOl, BsInfoCircleFill, BsChevronUp,
   BsReceiptCutoff } from "react-icons/bs";
 import { FaUsersBetweenLines } from "react-icons/fa6";
+import { AiOutlineTeam } from "react-icons/ai";
 import { Link } from 'react-router-dom'
 import Help from '../components/sidebar/Help';
 import { useContext } from 'react';
@@ -38,6 +38,15 @@ function Sidebar() {
                   className='flex items-center space-x-2 hover:text-gray-700'>
                   <BsReceiptCutoff size={24}/>
                   <span className="">訂單管理</span>
+                </Link>
+              </div>
+            </li>
+            <li>
+              <div>
+                <Link to={'/dashboard/client'} rel="noopener noreferrer"
+                  className='flex items-center space-x-2 hover:text-gray-700'>
+                  <AiOutlineTeam size={24}/>
+                  <span className="">會員管理</span>
                 </Link>
               </div>
             </li>

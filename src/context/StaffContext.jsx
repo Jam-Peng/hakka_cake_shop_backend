@@ -44,7 +44,7 @@ function StaffProvider({ children }) {
     getStaffs()
   }
 
-  // 刪除員工(設定員工的屬性is_delete=true)
+  // 刪除員工 (設定員工的屬性is_delete=true)
   const cancelStaff = async (id) => {
     const response = await fetch(`${apiurl}/staff_delete/${id}/`, {
       method: "PATCH",

@@ -13,7 +13,6 @@ function ProductList({ product }) {
     productShow(id, complete)
   }
 
-
   return (
     <>
       <tr>
