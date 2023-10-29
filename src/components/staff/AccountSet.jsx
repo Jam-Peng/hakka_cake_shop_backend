@@ -10,7 +10,7 @@ function AccountSet() {
   
   return (
     <section>
-      <div className={`${accountOpen ? 'top-11 right-44' : 'top-11 -right-full'} absolute w-[12vw] h-[12vh] 
+      <div className={`${accountOpen ? 'top-11 right-44' : 'top-11 -right-full'} absolute w-2/12 h-[12vh] 
               transition-all duration-500 z-10 text-gray-100 bg-gray-500 border rounded-md hidden sm:block`} >
           <div className="p-4 space-y-4">
             <button className="flex items-center space-x-2 hover:text-white"

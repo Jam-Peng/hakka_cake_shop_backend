@@ -29,7 +29,7 @@ function Navbar() {
           </button>
         </div>
 
-        <div className={`${userOpen ? 'top-11 right-4' : 'top-11 -right-full'} absolute w-[12vw] h-[12vh] 
+        <div className={`${userOpen ? 'top-11 right-4' : 'top-11 -right-full'} absolute w-2/12 h-[12vh] 
               transition-all duration-500 z-20 text-gray-100 bg-gray-500 border rounded-md hidden sm:block`} >
           <div className="p-4 space-y-4">
             <div className="flex items-center space-x-2 cursor-pointer hover:text-white" onClick={()=>{setAccountOpen(!accountOpen)}}> 
