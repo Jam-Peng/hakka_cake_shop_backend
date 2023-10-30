@@ -9,7 +9,7 @@ function NotFound() {
   useEffect(() => {
     setTimeout(() => {
       if (countdown === 0) {
-        navigate("/");
+        navigate("/dashboard");
       }
       setCountdown(countdown - 1);
     }, 1000);

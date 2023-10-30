@@ -32,7 +32,7 @@ function Client() {
         </div>
 
         <div className="flex items-center space-x-4">
-          <div className="text-rose-500 hidden sm:block">{clientMessage}回傳訊息</div>
+          <div className="text-rose-500 hidden sm:block">{clientMessage}</div>
         </div>
       </div>
 
