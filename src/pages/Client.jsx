@@ -11,13 +11,13 @@ import ClientSearchInput from "../components/client/ClientSearchInput";
 
 function Client() {
   const { currentUser } = useContext(AuthContext)
-  const { getAllClient, allClient, getAllProductsForClient, clientMessage } = useContext(ClientContext)
+  const { getAllClient, resultClients, getAllProductsForClient, clientMessage } = useContext(ClientContext)
 
   useEffect(() => {
     getAllClient()
     getAllProductsForClient()
   },[getAllClient, getAllProductsForClient])
-
+  
   return (
     <section className="h-full p-4 space-y-4 relative overflow-hidden">
       <div className="border rounded-md bg-gray-100 px-4 py-4
@@ -73,9 +73,9 @@ function Client() {
 
           <div>
             <div className="px-4 py-2">
-              {allClient.map((client, index) => {
+              {resultClients.map((client, index) => {
                 return (
-                  <div key={client.id} className="pt-4">
+                  <div className="pt-4" key={client.id}>
                     <ClientList client={client} index={index} currentUser={currentUser} />
                   </div>
               )})}

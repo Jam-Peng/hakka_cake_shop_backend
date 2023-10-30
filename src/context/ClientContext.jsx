@@ -6,12 +6,13 @@ import { createContext } from 'react'
 export const ClientContext = createContext()
 
 function ClientProvider({ children }) {
-  const [allClient, setallClient] = useState([])
   const [openClientItem, setOpenClientItem] = useState(null)
   const [openClientItemInfo, setOpenClientItemInfo] = useState(null)
   const [getProductsForClientInfo, setGetProductsForClientInfo] = useState([])
   const [clientMessage, setClientMessage] = useState('')
   const [searchClientQ, setSearchClientQ] = useState('')
+  const [getClients, setGetClients] = useState([])
+  const [resultClients, setResultClients] = useState([])
 
 const apiurl = "http://127.0.0.1:8000/api/v1"
 
@@ -25,7 +26,8 @@ const apiurl = "http://127.0.0.1:8000/api/v1"
     })
     const data = await response.json()
     if (response.status === 200) {
-      setallClient(data)
+      setGetClients(data)
+      setResultClients(data)
     } 
 
   }, []) 
@@ -74,14 +76,25 @@ const apiurl = "http://127.0.0.1:8000/api/v1"
       }
     })
     const data = await response.json()
+
+    const tempData = []
     if (response.status === 200) {
-      setallClient(data)
-      setSearchClientQ('')
+      // 解決原本搜尋後大頭照無法帶有host位置，改用搜尋後和原本的會員資料做篩選
+      data.forEach(item => {
+        const filterData = getClients.find(client => {
+          return client.id === item.id
+        })
+        tempData.push(filterData)
+      });
+      setResultClients(tempData)
     } 
+    setSearchClientQ('')
   }
+  
 
   const contextData = {
-    allClient : allClient,
+    getClients: getClients,
+    resultClients : resultClients,
     openClientItem : openClientItem,
     setOpenClientItem : setOpenClientItem,
     openClientItemInfo : openClientItemInfo,

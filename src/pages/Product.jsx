@@ -6,14 +6,12 @@ import ProductList from "../components/product/ProductList"
 import CreateUpdateModel from "../components/product/CreateUpdateModel";
 import DeleteModel from "../components/product/DeleteModel";
 
-
 function Product() {
   const { authToken } = useContext(AuthContext)
   const { getProducts, products, allProducts, productModel, setProductModel, productMessage,
     isNew, categoryByProducts } = useContext(ProductContext)
   const categorys = []
 
-  
   useEffect(() => {
       getProducts()
   },[authToken, getProducts])

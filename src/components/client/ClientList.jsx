@@ -17,7 +17,6 @@ function ClientList({ client, currentUser }) {
     }
   }
 
-  
   return (
     <section className="border rounded-lg bg-gray-50 overflow-hidden">
       <div className="space-y-2">
@@ -29,7 +28,6 @@ function ClientList({ client, currentUser }) {
                 <div className="w-2/12">
                   {image ?
                     <img src={image} alt="大頭照" className="h-14 w-14 rounded-md"/>
-                    
                     :
                     <img src={user_img} alt="大頭照" className="h-14 w-14 rounded-md bg-gray-100"/>
                   }
