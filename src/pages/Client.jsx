@@ -20,8 +20,7 @@ function Client() {
   
   return (
     <section className="h-full p-4 space-y-4 relative overflow-hidden">
-      <div className="border rounded-md bg-gray-100 px-4 py-4
-                      flex items-center justify-between w-full ">
+      <div className="border rounded-md bg-gray-100 px-4 py-4 flex items-center justify-between w-full">
         <div className="flex items-center space-x-4">
           <div>
             <button className="btn-category" onClick={getAllClient}>

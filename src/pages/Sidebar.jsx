@@ -2,14 +2,18 @@ import logo from '../assets/logo.png'
 import { BsListOl, BsInfoCircleFill, BsChevronUp,
   BsReceiptCutoff } from "react-icons/bs";
 import { FaUsersBetweenLines } from "react-icons/fa6";
+import { FaUserCircle } from "react-icons/fa"
 import { AiOutlineTeam } from "react-icons/ai";
+import { IoIosArrowDown } from "react-icons/io";
+import { PiUserCircleMinus } from "react-icons/pi"
 import { Link } from 'react-router-dom'
 import Help from '../components/sidebar/Help';
 import { useContext } from 'react';
 import { SideBarContext } from '../context/SideBarContext';
 
 function Sidebar() {
-  const { helpOpen, setHelpOpen } = useContext(SideBarContext)
+  const { helpOpen, setHelpOpen, openBlackClient, setOpenBlackClient, openDeleteStaff, setOpenDeleteStaff,
+    openClientList, openStaffList } = useContext(SideBarContext)
 
   return (
     <section className='h-full flex flex-col justify-between tracking-wide relative'>
@@ -41,22 +45,47 @@ function Sidebar() {
                 </Link>
               </div>
             </li>
-            <li>
+            <li onMouseLeave={()=>{setOpenBlackClient(false)}}>
               <div>
-                <Link to={'/dashboard/client'} rel="noopener noreferrer"
-                  className='flex items-center space-x-2 hover:text-gray-700'>
-                  <AiOutlineTeam size={24}/>
-                  <span className="">會員管理</span>
-                </Link>
+                <div className='flex items-center space-x-9 hover:text-gray-700'>
+                  <Link to={'/dashboard/client'} rel="noopener noreferrer" className='flex items-center space-x-2'>
+                    <AiOutlineTeam size={24}/>
+                    <span className="">會員管理</span>
+                  </Link>
+                  <div onClick={ openClientList }>
+                    <IoIosArrowDown size={20} className={`transform ${openBlackClient ? 'rotate-180' : ''} cursor-pointer hover:text-rose-500`}/>
+                  </div>
+                </div>
+                <div className={`${openBlackClient ? 'h-full' : 'h-0'} overflow-hidden transition-all duration-75 z-20 hover:text-indigo-500`}>
+                  <Link to={'/dashboard/client_black'}>
+                    <div className='flex items-center space-x-2 px-2 py-1'>
+                      <FaUserCircle size={24}/>
+                      <span>黑名單</span>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </li>
-            <li>
+            <li onMouseLeave={()=>{setOpenDeleteStaff(false)}}>
               <div>
-                <Link to={'/dashboard/staff'} rel="noopener noreferrer"
-                  className='flex items-center space-x-2 hover:text-gray-700'>
-                  <FaUsersBetweenLines size={24}/>
-                  <span className="">員工管理</span>
-                </Link>
+                <div className='flex items-center space-x-9 hover:text-gray-700'>
+                  <Link to={'/dashboard/staff'} rel="noopener noreferrer" className='flex items-center space-x-2'>
+                    <FaUsersBetweenLines size={24}/>
+                    <span className="">員工管理</span>
+                  </Link>
+                  <div onClick={ openStaffList }>
+                    <IoIosArrowDown size={20} className={`transform ${openDeleteStaff ? 'rotate-180' : ''} cursor-pointer hover:text-rose-500`}/>
+                  </div>
+                </div>
+
+                <div className={`${openDeleteStaff ? 'h-full' : 'h-0'} overflow-hidden transition-all duration-75 z-20 hover:text-indigo-500`}>
+                  <Link to={'/dashboard/staff_pre_delete'}>
+                    <div className='flex items-center space-x-2 px-2 py-1'>
+                      <PiUserCircleMinus size={24}/>
+                      <span>待刪除員工</span>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </li>
           </ul>

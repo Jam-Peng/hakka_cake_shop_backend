@@ -14,9 +14,9 @@ function ClientProvider({ children }) {
   const [getClients, setGetClients] = useState([])
   const [resultClients, setResultClients] = useState([])
 
-const apiurl = "http://127.0.0.1:8000/api/v1"
+  const apiurl = "http://127.0.0.1:8000/api/v1"
 
-// 取全部會員資料
+  // 取全部會員資料
   const getAllClient = useCallback( async() => {
     const response = await fetch(`${apiurl}/back_client_set/`, {
       method: "GET",
@@ -29,8 +29,7 @@ const apiurl = "http://127.0.0.1:8000/api/v1"
       setGetClients(data)
       setResultClients(data)
     } 
-
-  }, []) 
+  }, [])
   
   // 取得全部產品
   const getAllProductsForClient = useCallback(async () => {
@@ -90,7 +89,6 @@ const apiurl = "http://127.0.0.1:8000/api/v1"
     } 
     setSearchClientQ('')
   }
-  
 
   const contextData = {
     getClients: getClients,

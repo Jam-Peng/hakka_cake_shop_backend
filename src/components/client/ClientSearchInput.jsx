@@ -11,7 +11,7 @@ function ClientSearchInput() {
         <input
           type="search"
           className="input_search placeholder:text-[0.87rem] border border-teal-500 rounded-l pl-2 pr-1 focus:outline-none"
-          placeholder="輸入帳號or信箱"
+          placeholder="輸入會員姓名or信箱"
           aria-label="Search"
           value={searchClientQ}
           onChange={e => setSearchClientQ(e.target.value.trim())}
