@@ -43,8 +43,12 @@ function AuthProvider({ children }) {
       localStorage.setItem("authToken", JSON.stringify(data));    // 將 token儲存到 localStorage
       navigate('/dashboard')
     } else {
-      alert('無法取得連線')
+      // alert('無法取得連線')
+      setLoginMessage("帳號或密碼有誤")
     }
+    setTimeout(() => {
+      setLoginMessage('')
+    }, 1800)
   }
   
   // 登出
