@@ -62,7 +62,6 @@ function ClientBlackProvider({ children }) {
     setTimeout(() => {
       setBlackClientMessage('')
     }, 1800)
-    
   }
 
   const contextData = {

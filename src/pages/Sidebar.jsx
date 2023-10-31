@@ -79,7 +79,7 @@ function Sidebar() {
                 </div>
 
                 <div className={`${openDeleteStaff ? 'h-full' : 'h-0'} overflow-hidden transition-all duration-75 z-20 hover:text-indigo-500`}>
-                  <Link to={'/dashboard/staff_pre_delete'}>
+                  <Link to={'/dashboard/staff_wait_delete'}>
                     <div className='flex items-center space-x-2 px-2 py-1'>
                       <PiUserCircleMinus size={24}/>
                       <span>待刪除員工</span>
