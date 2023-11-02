@@ -51,7 +51,7 @@ function Product() {
         
         <CreateUpdateModel/>
       </div>
-      <DeleteModel />
+      <DeleteModel/>
       
       <div className="border rounded-md bg-gray-100 px-2 sm:px-0 py-4 h-[580px] overflow-y-auto">
         <table className="w-full">

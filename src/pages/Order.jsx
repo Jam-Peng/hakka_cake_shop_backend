@@ -32,7 +32,7 @@ function Order() {
       
       <div>
         <div className="border rounded-md bg-gray-100 sm:px-0 h-[580px] overflow-y-auto"> 
-          <div className="p-4 text-base space-y-4">
+          <div className="p-4 space-y-4">
             <div className="space-y-4">
               {
                 allOrders.map(order => {

@@ -3,7 +3,7 @@ import { BsListOl, BsInfoCircleFill, BsChevronUp,
   BsReceiptCutoff } from "react-icons/bs";
 import { FaUsersBetweenLines } from "react-icons/fa6";
 import { FaUserCircle } from "react-icons/fa"
-import { AiOutlineTeam } from "react-icons/ai";
+import { AiOutlineTeam, AiOutlineBarChart } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
 import { PiUserCircleMinus } from "react-icons/pi"
 import { Link } from 'react-router-dom'
@@ -77,7 +77,6 @@ function Sidebar() {
                     <IoIosArrowDown size={20} className={`transform ${openDeleteStaff ? 'rotate-180' : ''} cursor-pointer hover:text-rose-500`}/>
                   </div>
                 </div>
-
                 <div className={`${openDeleteStaff ? 'h-full' : 'h-0'} overflow-hidden transition-all duration-75 z-20 hover:text-indigo-500`}>
                   <Link to={'/dashboard/staff_wait_delete'}>
                     <div className='flex items-center space-x-2 px-2 py-1'>
@@ -88,6 +87,16 @@ function Sidebar() {
                 </div>
               </div>
             </li>
+            <li>
+              <div>
+                <Link to={'/dashboard/sales'} rel="noopener noreferrer"
+                  className='flex items-center space-x-2 hover:text-gray-700'>
+                  <AiOutlineBarChart size={24}/>
+                  <span className="">銷售管理</span>
+                </Link>
+              </div>
+            </li>
+
           </ul>
         </div>
       </div>

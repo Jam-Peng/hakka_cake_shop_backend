@@ -75,7 +75,7 @@ function ProductProvider({ children }) {
     setTimeout(() => {
       setProductMessage('')
     }, 2000)
-  }
+  };
 
   // 取得一筆商品
   const getOneProduct = (id) => {
@@ -83,15 +83,15 @@ function ProductProvider({ children }) {
     let product = products.find((item) => {
       return item.id === id
     })
-    setFormData({  ...product});
-  }
+    setFormData({ ...product });
+  };
 
   // 是否在前台顯示特定商品
   const productShow = async (id, complete) => {
     let response = await fetch(`${apiurl}/product_show/${id}/`, {
-        method: "PATCH",
-        body:{"complete": complete,}
-      })
+      method: "PATCH",
+      body: { "complete": complete, }
+    })
     const data = await response.json()
     if (response.status === 200) {
       setProductMessage(data['message'])
@@ -101,13 +101,13 @@ function ProductProvider({ children }) {
     setTimeout(() => {
       setProductMessage('')
     }, 2000)
-  }
+  };
 
   // 刪除商品
   const deleteProduct = async () => {
     const id = formData.id
     let response = await fetch(`${apiurl}/product_delete/${id}/`, {
-        method:"DELETE",
+      method: "DELETE",
     })
     if (response.status === 204) {
       setProductMessage("商品刪除成功")
@@ -122,7 +122,7 @@ function ProductProvider({ children }) {
     setTimeout(() => {
       setProductMessage('')
     }, 2000)
-  }
+  };
   
   // 依照類別篩選全部商品
   const categoryByProducts = (category) => {
@@ -134,14 +134,14 @@ function ProductProvider({ children }) {
       })
       setProducts(filterProduct)
     }
-  }
+  };
 
   // 關閉from表單
   const closeForm = () => {
     cancelFormData()
     setProductModel(false)
     setIsNew(true)
-  }
+  };
 
   const cancelFormData = () => {
     setFormData({
@@ -153,9 +153,9 @@ function ProductProvider({ children }) {
     });
     const fileInput = document.querySelector('input[type="file"]');
     if (fileInput) {
-      fileInput.value = ''; 
+      fileInput.value = '';
     }
-  }
+  };
 
 
   const contextData = {
