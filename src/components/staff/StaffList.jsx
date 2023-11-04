@@ -4,11 +4,16 @@ import { StaffContext } from "../../context/StaffContext";
 
 function StaffList({ item, index, currentUser }) {
   const { cancelStaff } = useContext(StaffContext)
-  const { id, username, name, email, clock_in_records, clock_out_records } = item
+  const { id, name, email, clock_in_records, clock_out_records } = item
   const [clockInTime, setClockInTime] = useState('')
   const [clockOutTime, setClockOutTime] = useState('')
 
-  // console.log(item)
+  // console.log(username)
+  // 員工編號
+  let staff_number = null
+  if (id) {
+    staff_number  =  169903656 + (id * 2458314) + 6178
+  }
   
   // 轉換上班打卡時間
   const formatClockInTime = useCallback(async () => {
@@ -50,7 +55,7 @@ function StaffList({ item, index, currentUser }) {
       <div className="px-2 flex items-center justify-between">
         <div className="flex items-center p-2 text-slate-800/70 w-11/12">
           <div className="w-2/12">
-            <span>{username}</span>
+            <span>HK{staff_number}</span>
           </div>
           <div className="w-2/12 pl-1">
             <span>{name || "未提供"}</span>

@@ -31,7 +31,7 @@ function StaffWaitDelete() {
             <div className="flex items-center w-10/12">
               <div className="w-2/12 flex items-center space-x-1">
                 <span><AiOutlineFieldNumber size={25}/></span>
-                <span>帳號</span>
+                <span>員工編號</span>
               </div>
               <div className="w-2/12 flex items-center space-x-1">
                 <span><PiUserCircle size={25}/></span>

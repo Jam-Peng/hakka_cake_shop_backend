@@ -1,19 +1,20 @@
 import logo from '../assets/logo.png'
-import { BsListOl, BsInfoCircleFill, BsChevronUp,
-  BsReceiptCutoff } from "react-icons/bs";
+import { BsListOl, BsInfoCircleFill, BsChevronUp, BsReceiptCutoff,  } from "react-icons/bs";
 import { FaUsersBetweenLines } from "react-icons/fa6";
-import { FaUserCircle } from "react-icons/fa"
+import { BiSolidUserCircle } from "react-icons/bi"
 import { AiOutlineTeam, AiOutlineBarChart } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
-import { PiUserCircleMinus } from "react-icons/pi"
+import { PiUserCircleMinus, PiBellRingingLight } from "react-icons/pi"
 import { Link } from 'react-router-dom'
-import Help from '../components/sidebar/Help';
 import { useContext } from 'react';
 import { SideBarContext } from '../context/SideBarContext';
+import Help from '../components/sidebar/Help';
+import { AuthContext } from '../context/AuthContext';
 
 function Sidebar() {
   const { helpOpen, setHelpOpen, openBlackClient, setOpenBlackClient, openDeleteStaff, setOpenDeleteStaff,
     openClientList, openStaffList } = useContext(SideBarContext)
+  const { currentUser } = useContext(AuthContext)
 
   return (
     <section className='h-full flex flex-col justify-between tracking-wide relative'>
@@ -52,14 +53,20 @@ function Sidebar() {
                     <AiOutlineTeam size={24}/>
                     <span className="">會員管理</span>
                   </Link>
-                  <div onClick={ openClientList }>
-                    <IoIosArrowDown size={20} className={`transform ${openBlackClient ? 'rotate-180' : ''} cursor-pointer hover:text-rose-500`}/>
-                  </div>
+
+                  {currentUser.admin === true ?
+                    <div onClick={ openClientList }>
+                      <IoIosArrowDown size={20} className={`transform ${openBlackClient ? 'rotate-180' : ''} cursor-pointer hover:text-rose-500`}/>
+                    </div>
+                  :
+                    null
+                  }
+
                 </div>
-                <div className={`${openBlackClient ? 'h-full' : 'h-0'} overflow-hidden transition-all duration-75 z-20 hover:text-indigo-500`}>
+                <div className={`${openBlackClient ? 'h-full' : 'h-0'} overflow-hidden transition-all duration-75 z-20`}>
                   <Link to={'/dashboard/client_black'}>
-                    <div className='flex items-center space-x-2 px-2 py-1'>
-                      <FaUserCircle size={24}/>
+                    <div className='flex items-center space-x-2 px-2 py-1 hover:text-indigo-500'>
+                      <BiSolidUserCircle size={24}/>
                       <span>黑名單</span>
                     </div>
                   </Link>
@@ -73,13 +80,26 @@ function Sidebar() {
                     <FaUsersBetweenLines size={24}/>
                     <span className="">員工管理</span>
                   </Link>
-                  <div onClick={ openStaffList }>
-                    <IoIosArrowDown size={20} className={`transform ${openDeleteStaff ? 'rotate-180' : ''} cursor-pointer hover:text-rose-500`}/>
-                  </div>
+
+                  {currentUser.admin === true ?
+                    <div onClick={openStaffList}>
+                      <IoIosArrowDown size={20} className={`transform ${openDeleteStaff ? 'rotate-180' : ''} cursor-pointer hover:text-rose-500`} />
+                    </div>
+                  :
+                    null
+                  }
+
                 </div>
-                <div className={`${openDeleteStaff ? 'h-full' : 'h-0'} overflow-hidden transition-all duration-75 z-20 hover:text-indigo-500`}>
+                <div className={`${openDeleteStaff ? 'h-full' : 'h-0'} overflow-hidden transition-all duration-75 z-20`}>
+                  <Link to={'/dashboard/staff_clockin_out_records/'}>
+                    <div className='flex items-center space-x-2 px-2 py-1 hover:text-indigo-500'>
+                      <PiBellRingingLight size={24}/>
+                      <span>出勤紀錄</span>
+                    </div>
+                  </Link>
+
                   <Link to={'/dashboard/staff_wait_delete'}>
-                    <div className='flex items-center space-x-2 px-2 py-1'>
+                    <div className='flex items-center space-x-2 px-2 py-1 hover:text-indigo-500'>
                       <PiUserCircleMinus size={24}/>
                       <span>待刪除員工</span>
                     </div>

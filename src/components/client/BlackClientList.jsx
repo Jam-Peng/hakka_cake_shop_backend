@@ -6,8 +6,14 @@ import { ClientBlackContext } from "../../context/ClientBlackContext";
 
 function BlackClientList({ client }) {
   const { retrieve, deleteClient } = useContext(ClientBlackContext)
-  const { id, image, username, name } = client
+  const { id, image, name } = client
   
+  // 使用會員編號 id 替換帳號 username
+  let staff_number = null
+  if (id) {
+    staff_number  =  169903656 + (id * 2458314) + 6178
+  }
+
   return (
     <section className="border rounded-lg bg-gray-50 overflow-hidden">
       <div className="py-2 px-4 space-y-1 bg-gray-300 hover:bg-gray-200 hover:text-indigo-500 cursor-pointer"
@@ -22,7 +28,7 @@ function BlackClientList({ client }) {
               } 
             </div>
             <div className="w-3/12">
-              <span>{username}</span>
+              <span>HK{staff_number}</span>
             </div>
             <div className="w-3/12">
               <span>{name || "未提供"}</span>

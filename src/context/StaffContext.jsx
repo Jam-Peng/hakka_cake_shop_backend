@@ -1,6 +1,5 @@
 import { createContext, useCallback, useState } from 'react'
 
-
 export const StaffContext = createContext()
 function StaffProvider({ children }) {
   const [staffs, setStaffs] = useState([])
@@ -108,8 +107,6 @@ function StaffProvider({ children }) {
       setClockInMessage('')
     }, 2000)
   }
-  
-
 
   const contextData = {
     staffs : staffs,

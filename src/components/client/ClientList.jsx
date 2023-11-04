@@ -5,8 +5,14 @@ import { useContext } from "react";
 import ClientItem from "./ClientItem";
 
 function ClientList({ client, currentUser }) {
-  const { id, image, username, name, email, orders } = client
+  const { id, image, name, email, orders } = client
   const { openClientItem, setOpenClientItem, addToBlackList } = useContext(ClientContext)
+
+  // 使用會員編號 id 替換帳號 username
+  let staff_number = null
+  if (id) {
+    staff_number  =  169903656 + (id * 2458314) + 6178
+  }
 
   // 開關訂單項目
   const openClientItemsTaggle = (id) => {
@@ -33,7 +39,7 @@ function ClientList({ client, currentUser }) {
                   }
                 </div>
                 <div className="w-2/12">
-                  <span>{username}</span>
+                  <span>HK{staff_number}</span>
                 </div>
                 <div className="w-2/12">
                   <span>{name||"未提供"}</span>

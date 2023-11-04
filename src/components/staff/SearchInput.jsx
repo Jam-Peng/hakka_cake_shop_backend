@@ -7,7 +7,7 @@ function SearchInput() {
   
   return (
     <section>
-      <div className="relative flex w-full flex-wrap items-stretch">
+      <div className="relative flex w-full flex-wrap">
         <input
           type="search"
           className="input_search placeholder:text-[0.87rem] border border-teal-500 rounded-l pl-2 pr-1 focus:outline-none"

@@ -2,11 +2,11 @@ import { PiUserCircle, PiUserCircleMinus } from "react-icons/pi"
 import { AiOutlineFieldNumber } from "react-icons/ai";
 import { BiSolidBellRing } from "react-icons/bi";
 import { MdOutlineEmail } from "react-icons/md"
-import SearchInput from "../components/staff/SearchInput";
 import { useContext, useEffect } from "react";
 import { StaffContext } from "../context/StaffContext";
-import StaffList from "../components/staff/StaffList";
 import { AuthContext } from "../context/AuthContext";
+import SearchInput from "../components/staff/SearchInput";
+import StaffList from "../components/staff/StaffList";
 
 function Staff() {
   const { currentUser, authToken } = useContext(AuthContext)
@@ -48,7 +48,7 @@ function Staff() {
               <div className="flex items-center w-11/12">
                 <div className="w-2/12 flex items-center space-x-1">
                   <span><AiOutlineFieldNumber size={25}/></span>
-                  <span>帳號</span>
+                  <span>員工編號</span>
                 </div>
                 <div className="w-2/12 flex items-center space-x-1">
                   <span><PiUserCircle size={25}/></span>
@@ -60,7 +60,7 @@ function Staff() {
                 </div>
                 <div className="w-3/12 flex items-center space-x-1">
                   <span><BiSolidBellRing size={22}/></span>
-                  <span>上 / 下班打卡時間</span>
+                  <span>上 / 下班打卡紀錄</span>
                 </div>
               </div>
               {currentUser.admin === true ?
