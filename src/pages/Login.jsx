@@ -12,17 +12,19 @@ function Login() {
   return (
     <section>
       <div className="flex justify-center items-center px-4 sm:px-8 min-h-screen">
-        <div className="w-full md:w-5/12 lg:w-4/12 border rounded-md overflow-hidden bg-gray-50 ">
+        <div className="w-full md:w-5/12 lg:w-4/12 border rounded-md overflow-hidden bg-gray-50 shadow-md">
 
-          <div className="py-2 px-4 bg-gray-500 text-gray-50">
-            <span className="tracking-wide">後台管理系統</span>
+          <div className="flex flex-col items-center font-bold leading-9 tracking-tight 
+                      text-slate-800 space-y-2 pt-8">
+              <span className="text-xl tracking-wide">智能商務管理系統</span>
+              <span className="text-lg">Sign in to your account</span>
           </div>
 
-          <div className="px-8 pt-4">
+          <div className="px-8 pt-4 pb-2">
             {loginMessage ? 
               <span className="text-rose-500">{loginMessage}</span>
-                :
-                null
+              :
+              null
             }
           </div>
 
